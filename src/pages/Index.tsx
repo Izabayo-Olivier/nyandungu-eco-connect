@@ -42,13 +42,13 @@ const Index = () => (
   <div>
     {/* Hero */}
     <section className="relative h-[85vh] min-h-[500px] overflow-hidden">
-      <img src={heroPark} alt="Nyandungu Eco-Park aerial view" className="absolute inset-0 w-full h-full object-cover" width={1920} height={1080} />
+      <img src={heroPark} alt="Discover Nyandungu Eco Park aerial view" className="absolute inset-0 w-full h-full object-cover" width={1920} height={1080} />
       <div className="absolute inset-0 bg-gradient-overlay" />
       <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4">
         <div className="animate-fade-up">
           <p className="text-primary-foreground/80 text-sm font-medium tracking-widest uppercase mb-3">Welcome to</p>
           <h1 className="font-heading text-4xl md:text-6xl lg:text-7xl font-bold text-primary-foreground mb-4">
-            Nyandungu Eco-Park
+            Discover Nyandungu Eco Park
           </h1>
           <p className="text-xl md:text-2xl text-primary-foreground/90 font-light mb-2">Scan · Learn · Protect</p>
           <p className="text-primary-foreground/70 max-w-lg mx-auto mb-8">
@@ -72,7 +72,7 @@ const Index = () => (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
           {[
             { icon: QrCode, title: "Scan", desc: "Scan QR codes at each park section for a digital experience" },
-            { icon: Leaf, title: "Learn", desc: "Discover wildlife, plants, and the rich history of Nyandungu" },
+            { icon: Leaf, title: "Learn", desc: "Discover wildlife, plants, and the rich history of Nyandungu Eco Park" },
             { icon: Bird, title: "Protect", desc: "Learn how to preserve this beautiful wetland ecosystem" },
           ].map(f => (
             <div key={f.title} className="text-center p-6">
