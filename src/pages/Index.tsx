@@ -42,7 +42,7 @@ const Index = () => (
   <div>
     {/* Hero */}
     <section className="relative h-[85vh] min-h-[500px] overflow-hidden">
-      <img src={heroPark} alt="Nyandungu Eco-Park aerial view" className="absolute inset-0 w-full h-full object-cover" width={1920} height={1080} />
+      <img src={heroPark} alt="Discover Nyandungu Eco Park aerial view" className="absolute inset-0 w-full h-full object-cover" width={1920} height={1080} />
       <div className="absolute inset-0 bg-gradient-overlay" />
       <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4">
         <div className="animate-fade-up">
