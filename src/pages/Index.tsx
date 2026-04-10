@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { QrCode, Leaf, Bird, Map } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import SectionCard from "@/components/SectionCard";
-import heroPark from "@/assets/hero-park.jpg";
+import heroPark from "@/assets/nyandungu-gate.jpg";
 import peacockImg from "@/assets/peacock-real.jpg";
 import trailsImg from "@/assets/trails.jpg";
 import gardenImg from "@/assets/garden.jpg";
