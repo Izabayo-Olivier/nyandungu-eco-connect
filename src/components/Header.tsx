@@ -28,16 +28,6 @@ const Header = () => {
           <Link to="/section/peacock" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Peacock</Link>
           <Link to="/section/top-ten" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Top 10 Sites</Link>
           <Link to="/section/trails" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Trails</Link>
-          {user ? (
-            <>
-              <Link to="/admin" className="text-sm font-medium bg-primary text-primary-foreground px-4 py-2 rounded-lg hover:opacity-90 transition-opacity">Admin</Link>
-              <button onClick={handleSignOut} className="text-sm font-medium text-muted-foreground hover:text-destructive transition-colors flex items-center gap-1">
-                <LogOut className="h-4 w-4" /> Sohoka
-              </button>
-            </>
-          ) : (
-            <Link to="/login" className="text-sm font-medium bg-primary text-primary-foreground px-4 py-2 rounded-lg hover:opacity-90 transition-opacity">Admin</Link>
-          )}
         </nav>
 
         <button onClick={() => setOpen(!open)} className="md:hidden p-2">
@@ -52,14 +42,6 @@ const Header = () => {
           <Link to="/section/peacock" onClick={() => setOpen(false)} className="text-sm font-medium py-2">Peacock</Link>
           <Link to="/section/top-ten" onClick={() => setOpen(false)} className="text-sm font-medium py-2">Top 10 Sites</Link>
           <Link to="/section/trails" onClick={() => setOpen(false)} className="text-sm font-medium py-2">Trails</Link>
-          {user ? (
-            <>
-              <Link to="/admin" onClick={() => setOpen(false)} className="text-sm font-medium bg-primary text-primary-foreground px-4 py-2 rounded-lg text-center">Admin</Link>
-              <button onClick={() => { handleSignOut(); setOpen(false); }} className="text-sm font-medium text-destructive py-2 text-left">Sohoka / Logout</button>
-            </>
-          ) : (
-            <Link to="/login" onClick={() => setOpen(false)} className="text-sm font-medium bg-primary text-primary-foreground px-4 py-2 rounded-lg text-center">Admin Login</Link>
-          )}
         </nav>
       )}
     </header>
