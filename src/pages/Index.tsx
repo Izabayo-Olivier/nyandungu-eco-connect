@@ -143,21 +143,6 @@ const Index = () => {
           </div>
         </div>
       </div>
-      {/* Image Carousel Indicators */}
-      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20">
-        {carouselImages.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentImageIndex(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              index === currentImageIndex
-                ? "bg-primary-foreground scale-125"
-                : "bg-primary-foreground/50 hover:bg-primary-foreground/75"
-            }`}
-            aria-label={`View ${carouselImages[index].alt}`}
-          />
-        ))}
-      </div>
     </section>
 
     {/* Features */}
