@@ -9,6 +9,7 @@ export interface SectionHighlight {
   description: string;
   descriptionKn?: string;
   image?: string;
+  carouselImages?: string[];
   details?: { label: string; labelKn?: string; text: string; textKn?: string }[];
 }
 

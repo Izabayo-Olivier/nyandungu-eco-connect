@@ -1,11 +1,37 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { QrCode, Leaf, Bird, Map } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import SectionCard from "@/components/SectionCard";
+
+// Main section images
 import heroPark from "@/assets/nyandungu-gate.jpg";
 import peacockImg from "@/assets/peacock-real.jpg";
-import trailsImg from "@/assets/trails.jpg";
-import gardenImg from "@/assets/garden.jpg";
+import trailsImg from "@/assets/18.jpeg";
+import topTenImg from "@/assets/3.jpeg";
+
+// Gallery images from all sections
+import docMedicinalGarden from "@/assets/doc-medicinal-garden.jpg";
+import docPopesGarden from "@/assets/doc-popes-garden.jpg";
+import docBambooTrail from "@/assets/doc-bamboo-trail.jpg";
+import docGreatLakes from "@/assets/doc-great-lakes.jpg";
+import docPlayground from "@/assets/doc-playground.jpg";
+import docInfoCenter from "@/assets/doc-info-center.jpg";
+import docPeacockDisplay from "@/assets/doc-peacock-display.jpg";
+import docPeacockGrass from "@/assets/doc-peacock-grass.jpg";
+import docPeacock from "@/assets/doc-peacock.jpg";
+import docRestaurant from "@/assets/doc-restaurant.jpg";
+import docRestaurantNight from "@/assets/doc-restaurant-night.jpg";
+import docPonds from "@/assets/doc-ponds.jpg";
+import docCranes from "@/assets/doc-cranes.jpg";
+import docBicycles from "@/assets/doc-bicycles.jpg";
+import docTrailCranes from "@/assets/doc-trail-cranes.jpg";
+import docBarbet from "@/assets/doc-barbet.jpg";
+import docBarbet2 from "@/assets/doc-barbet2.jpg";
+import docFishEagle from "@/assets/doc-fish-eagle.jpg";
+import docKingfisher from "@/assets/doc-kingfisher.jpg";
+import docFlameTree from "@/assets/doc-flame-tree.jpg";
+import docBambooPath from "@/assets/doc-bamboo-path.jpg";
 
 const sections = [
   {
@@ -27,7 +53,7 @@ const sections = [
     title: "Top 10 Sites",
     titleKn: "Ahantu 10 Heza Cyane",
     description: "Explore the best spots: Medicinal Garden, Pope's Garden, Learning Pond, and more.",
-    image: gardenImg,
+    image: topTenImg,
   },
   {
     id: "trails",
@@ -38,11 +64,64 @@ const sections = [
   },
 ];
 
-const Index = () => (
-  <div>
+// All carousel images with section names
+const carouselImages = [
+  { src: heroPark, alt: "Nyandungu Eco Park Main Gate" },
+  { src: peacockImg, alt: "Beautiful Peacock Display" },
+  { src: topTenImg, alt: "Top 10 Sites - Medicinal Garden" },
+  { src: trailsImg, alt: "Trails & Wildlife - Nature Path" },
+  // Top 10 Sites Gallery
+  { src: docMedicinalGarden, alt: "Medicinal Garden - Traditional Healing Plants" },
+  { src: docPopesGarden, alt: "Pope's Garden - Sacred Site" },
+  { src: docBambooTrail, alt: "Bamboo Trail - Cool Shade Path" },
+  { src: docGreatLakes, alt: "Great Lakes Exhibit" },
+  { src: docPlayground, alt: "Children's Playground" },
+  { src: docInfoCenter, alt: "Information Center" },
+  // Peacock Gallery
+  { src: docPeacockDisplay, alt: "Peacock Display Area" },
+  { src: docPeacockGrass, alt: "Peacock in Natural Habitat" },
+  { src: docPeacock, alt: "Beautiful Peacock" },
+  // Nyandungu Info Gallery
+  { src: docRestaurant, alt: "Nyandungu Restaurant" },
+  { src: docRestaurantNight, alt: "Restaurant at Night" },
+  { src: docPonds, alt: "Peaceful Ponds" },
+  { src: docCranes, alt: "Gray Crowned Cranes" },
+  { src: docBicycles, alt: "Bicycle Rentals" },
+  // Trails Gallery
+  { src: docTrailCranes, alt: "Cranes on Trail" },
+  { src: docBarbet, alt: "Colorful Barbet Bird" },
+  { src: docBarbet2, alt: "Barbet Bird Close-up" },
+  { src: docFishEagle, alt: "Majestic Fish Eagle" },
+  { src: docKingfisher, alt: "Beautiful Kingfisher" },
+  { src: docFlameTree, alt: "Flame Tree in Bloom" },
+  { src: docBambooPath, alt: "Bamboo Forest Path" },
+];
+
+const Index = () => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  // Image carousel effect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % carouselImages.length);
+    }, 4000); // Change image every 4 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const currentImage = carouselImages[currentImageIndex];
+
+  return (
+    <div>
     {/* Hero */}
     <section className="relative h-[85vh] min-h-[500px] overflow-hidden">
-      <img src={heroPark} alt="Discover Nyandungu Eco Park aerial view" className="absolute inset-0 w-full h-full object-cover" width={1920} height={1080} />
+      <img
+        src={currentImage.src}
+        alt={currentImage.alt}
+        className="absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-in-out"
+        width={1920}
+        height={1080}
+      />
       <div className="absolute inset-0 bg-gradient-overlay" />
       <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4">
         <div className="animate-fade-up">
@@ -63,6 +142,21 @@ const Index = () => (
             </Button>
           </div>
         </div>
+      </div>
+      {/* Image Carousel Indicators */}
+      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20">
+        {carouselImages.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentImageIndex(index)}
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              index === currentImageIndex
+                ? "bg-primary-foreground scale-125"
+                : "bg-primary-foreground/50 hover:bg-primary-foreground/75"
+            }`}
+            aria-label={`View ${carouselImages[index].alt}`}
+          />
+        ))}
       </div>
     </section>
 
@@ -115,6 +209,7 @@ const Index = () => (
       </div>
     </section>
   </div>
-);
+  );
+};
 
 export default Index;

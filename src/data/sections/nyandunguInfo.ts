@@ -6,6 +6,20 @@ import docPonds from "@/assets/doc-ponds.jpg";
 import docPeacock from "@/assets/doc-peacock.jpg";
 import docCranes from "@/assets/doc-cranes.jpg";
 import docBicycles from "@/assets/doc-bicycles.jpg";
+import img1 from "@/assets/1.jpeg";
+import img9 from "@/assets/9.jpeg";
+import img10 from "@/assets/10.jpeg";
+import img11 from "@/assets/11.jpeg";
+import img14 from "@/assets/14.jpeg";
+import img17 from "@/assets/17.jpeg";
+import img21 from "@/assets/21.jpeg";
+import peacock from "@/assets/peacock.jpg";
+import fishEagle from "@/assets/fish-eagle.jpg";
+import kingfisher from "@/assets/kingfisher.jpg";
+import docBarbet from "@/assets/doc-barbet.jpg";
+import docBarbet2 from "@/assets/doc-barbet2.jpg";
+import docKingfisher from "@/assets/doc-kingfisher.jpg";
+import docInfoCenter from "@/assets/doc-info-center.jpg";
 
 export const nyandunguInfoSection: SectionContent = {
   title: "Welcome to Nyandungu Eco-Park",
@@ -21,6 +35,7 @@ export const nyandunguInfoSection: SectionContent = {
       descriptionKn:
         "Shakira amafunguro n'ibinyobwa muri resitora ya Nyandungu, mu bidukikije byiza.",
       image: docRestaurant,
+      carouselImages: [img9, img21],
     },
     {
       title: "2. Ponds",
@@ -30,6 +45,7 @@ export const nyandunguInfoSection: SectionContent = {
       descriptionKn:
         "Vumbura ibiyaga byacu by'imyigishirize bigaragaza ibiyaga bikuru by'u Rwanda: Kivu, Muhazi, Ihema, na Ruhondo.",
       image: docPonds,
+      carouselImages: [img11, img17, img14],
     },
     {
       title: "3. Birds",
@@ -39,6 +55,7 @@ export const nyandunguInfoSection: SectionContent = {
       descriptionKn:
         "Reba inyoni nziza zitandukanye mu ishyamba ryazo kamere harimo ingabo, inkanga n'izindi.",
       image: docCranes,
+      carouselImages: [img1, img10, peacock, fishEagle, kingfisher, docBarbet2, docBarbet, docKingfisher],
     },
     {
       title: "4. Bicycle",

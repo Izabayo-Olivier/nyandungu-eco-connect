@@ -17,10 +17,30 @@ const SectionPage = () => {
   const [feedback, setFeedback] = useState("");
   const [rating, setRating] = useState(0);
   const [feedbackSent, setFeedbackSent] = useState(false);
+  const [highlightImageIndices, setHighlightImageIndices] = useState<Record<number, number>>({});
 
   useEffect(() => {
     if (id) trackVisit(id);
   }, [id]);
+
+  // Auto-rotate carousel images
+  useEffect(() => {
+    if (section?.highlights) {
+      const intervals: NodeJS.Timeout[] = [];
+      section.highlights.forEach((highlight, i) => {
+        if (highlight.carouselImages && highlight.carouselImages.length > 1) {
+          const interval = setInterval(() => {
+            setHighlightImageIndices(prev => ({
+              ...prev,
+              [i]: ((prev[i] || 0) + 1) % highlight.carouselImages!.length
+            }));
+          }, 4000);
+          intervals.push(interval);
+        }
+      });
+      return () => intervals.forEach(clearInterval);
+    }
+  }, [section]);
 
   if (!section) {
     return (
@@ -99,6 +119,34 @@ const SectionPage = () => {
                   <div className="px-6 pb-2">
                     <div className="aspect-[16/9] rounded-lg overflow-hidden">
                       <img src={h.image} alt={h.title} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+                    </div>
+                  </div>
+                )}
+
+                {h.carouselImages && h.carouselImages.length > 0 && (
+                  <div className="px-6 pb-2">
+                    <div className="aspect-[16/9] rounded-lg overflow-hidden relative bg-gray-100">
+                      <img
+                        src={h.carouselImages[highlightImageIndices[i] || 0]}
+                        alt={`${h.title} - Image ${(highlightImageIndices[i] || 0) + 1}`}
+                        className="w-full h-full object-cover transition-all duration-1000"
+                      />
+                      {h.carouselImages.length > 1 && (
+                        <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                          {h.carouselImages.map((_, imgIndex) => (
+                            <button
+                              key={imgIndex}
+                              onClick={() => setHighlightImageIndices(prev => ({ ...prev, [i]: imgIndex }))}
+                              className={`w-2 h-2 rounded-full transition-all ${
+                                imgIndex === (highlightImageIndices[i] || 0)
+                                  ? "bg-white scale-125"
+                                  : "bg-white/50 hover:bg-white/75"
+                              }`}
+                              aria-label={`View image ${imgIndex + 1}`}
+                            />
+                          ))}
+                        </div>
+                      )}
                     </div>
                   </div>
                 )}
