@@ -5,7 +5,7 @@ import docBarbet from "@/assets/doc-barbet.jpg";
 
 import docBarbet2 from "@/assets/doc-barbet2.jpg";
 
-import docFishEagle from "@/assets/doc-fish-eagle.jpg";
+import docFishEagle from "@/assets/fish-eagle-new.jpg";
 
 import docFlameTree from "@/assets/doc-flame-tree.jpeg";
 
