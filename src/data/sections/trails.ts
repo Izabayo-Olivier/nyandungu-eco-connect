@@ -10,6 +10,7 @@ import docFishEagle from "@/assets/fish-eagle-new.jpg";
 import docFlameTree from "@/assets/doc-flame-tree.jpeg";
 
 import docKingfisher from "@/assets/doc-kingfisher.jpg";
+import giantKingfisherNew from "@/assets/giant-kingfisher-new.jpg";
 
 import dracaenaAfromontana from "@/assets/dracaena-afromontana-new.jpeg";
 
